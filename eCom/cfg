@@ -1,0 +1,36 @@
+python manage.py makemigrations
+python manage.py migrate
+python manage.py loaddata datadump.json
+
+(Site) D:\repos\DjangoProj\eCom>"C:\Program Files\heroku\bin\heroku" create
+Creating app... done, ⬢ dry-hamlet-16975
+https://dry-hamlet-16975.herokuapp.com/ | https://git.heroku.com/dry-hamlet-16975.git
+"C:\Program Files\heroku\bin\heroku" run python manage.py migrate
+
+https://dry-hamlet-16975.herokuapp.com/shop/
+
+https://www.youtube.com/watch?v=xnB0G1WxctM
+
+cd "C:\Program Files\RabbitMQ Server\rabbitmq_server-3.8.5\sbin"
+./rabbitmqctl stop
+./rabbitmq_server
+
+python manage.py migrate django_celery_results
+
+celery -A eCom worker -l info -P gevent
+
+"C:\Program Files\heroku\bin\heroku" run python manage.py migrate django_celery_results
+
+py -m pip freeze > requirements.txt
+git add --all
+git commit -m "update"
+git push heroku master
+"C:\Program Files\heroku\bin\heroku" run celery -A eCom worker -l info
+"C:\Program Files\heroku\bin\heroku" logs --tail
+
+"C:\Program Files\heroku\bin\heroku" run python manage.py makemigrations
+"C:\Program Files\heroku\bin\heroku" run python manage.py migrate
+
+
+example_mail_django@bk.ru
+example_mail_django@bk.ru

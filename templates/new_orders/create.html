@@ -1,0 +1,71 @@
+{% extends "base_generic.html" %}
+{% load tag_library %}
+{% block content %}
+     <section class="checkout spad">
+        <div class="container">
+            <div class="checkout__form">
+                <h4>Данные для оплаты</h4>
+                <form action="." method="post" class="order-form">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-6">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        {{ form.as_p }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <input type="hidden">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="checkout__input__checkbox">
+                                <label for="diff-acc">
+                                    Отправить по другому адресу?
+                                    <input type="checkbox" id="diff-acc">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="checkout__input">
+                                <p>Информация о заказе<span>*</span></p>
+                                <input type="text"
+                                    placeholder="Примечания к Вашему заказу, например, специальные указания по доставке.">
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="checkout__order">
+                                <h4>Ваш заказ</h4>
+                                <div class="checkout__order__products">Товары <span>Итого</span></div>
+                                <ul>
+                                    {% for item in cart %}
+                                        <li>{{ item.product.title|cutStr }}... x{{ item.quantity }} <span>{{ item.total_price }} ₽</span></li>
+                                    {% endfor %}
+                                </ul>
+                                <div class="checkout__order__subtotal">Промежуточный итог <span>{{ cart.get_total_price }} ₽</span></div>
+                                <div class="checkout__order__total">Итого <span>{{ cart.get_total_price }} ₽</span></div>
+                                {% if user.is_authenticated %}
+                                {% else %}
+                                    <div class="checkout__input__checkbox">
+                                    <label for="acc-or">
+                                        Создать аккаунт?
+                                        <input type="checkbox" id="acc-or">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="checkout__input__checkbox">
+                                </div>
+                                {% endif %}
+                                {% csrf_token %}
+                                <button type="submit" class="site-btn">ОФОРМИТЬ ЗАКАЗ</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}
