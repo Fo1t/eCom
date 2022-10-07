@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ''
+SECRET_KEY = '7ek)&nxtv=sdf-h14kpb4v&th43k3erzo5pl)d6x9aoah+g*pq'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -100,7 +100,7 @@ if platform == "win32":
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'shop',
             'USER': 'postgres',
-            'PASSWORD': '',
+            'PASSWORD': '31467539',
             'HOST': '127.0.0.1',
             'PORT': '5432',
         },
@@ -116,7 +116,7 @@ else:
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'ddhvm6vis6l50q',
             'USER': 'rcvnqprojakzcw',
-            'PASSWORD': '',
+            'PASSWORD': 'b955e084aa866d901c3c5b29a3145bff178f99554f1bed718b9ed4fdb86b51f6',
             'HOST': 'ec2-3-226-231-4.compute-1.amazonaws.com',
             'PORT': '5432',
             },
@@ -202,7 +202,11 @@ STATICFILES_DIRS = (os.path.join('static'),)
 
 SESSION_SAVE_EVERY_REQUEST = True
 
-
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.mail.ru'
+EMAIL_HOST_USER = 'example_mail_django@bk.ru'
+EMAIL_HOST_PASSWORD = '?Zk|Lb8PQce659tz'
+EMAIL_PORT = 2525
 
 #CELERY_BROKER_URL = 'amqp://localhost'
 #CELERY_BROKER_URL = 'amqp://foit:foit@localhost:5672//'
